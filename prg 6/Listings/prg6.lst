@@ -1,0 +1,77 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             LARGE, CODE, READONLY
+    2 00000000         ENTRY
+    3 00000000 E3A05006        MOV              R5, #06
+    4 00000004 E3A01101        MOV              R1, #0X40000000
+    5 00000008 E3A02171        MOV              R2, #0X4000001C
+    6 0000000C E5913000        LDR              R3, [R1]
+    7 00000010 E2811004 
+                       UP      ADD              R1, R1, #4
+    8 00000014 E5914000        LDR              R4, [R1]
+    9 00000018 E1530004        CMP              R3, R4
+   10 0000001C 8A000000        BHI              DOWN
+   11 00000020 E1A03004        MOV              R3, R4
+   12 00000024 E2555001 
+                       DOWN    SUBS             R5, R5, #01
+   13 00000028 1AFFFFF8        BNE              UP
+   14 0000002C E5823000        STR              R3, [R2]
+   15 00000030 EAFFFFFE 
+                       BACK    B                BACK
+   16 00000034                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\prg6.d -o.\objects\prg6.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMS
+IS\Include -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine
+="__UVISION_VERSION SETA 529" --list=.\listings\prg6.lst prg6.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+BACK 00000030
+
+Symbol: BACK
+   Definitions
+      At line 15 in file prg6.asm
+   Uses
+      At line 15 in file prg6.asm
+Comment: BACK used once
+DOWN 00000024
+
+Symbol: DOWN
+   Definitions
+      At line 12 in file prg6.asm
+   Uses
+      At line 10 in file prg6.asm
+Comment: DOWN used once
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 2 in file prg6.asm
+   Uses
+      None
+Comment: ENTRY unused
+LARGE 00000000
+
+Symbol: LARGE
+   Definitions
+      At line 1 in file prg6.asm
+   Uses
+      None
+Comment: LARGE unused
+UP 00000010
+
+Symbol: UP
+   Definitions
+      At line 7 in file prg6.asm
+   Uses
+      At line 13 in file prg6.asm
+Comment: UP used once
+5 symbols
+337 symbols in table

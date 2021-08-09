@@ -1,0 +1,68 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             SUM10, CODE, READONLY
+    2 00000000 E3A0000A        MOV              R0, #10     ; initialize R0 to 
+                                                            10, a  counter regi
+                                                            ster
+    3 00000004 E1A01000        MOV              R1, R0      ; move to R1 ,the v
+                                                            alue 10
+    4 00000008         AGAIN                                ; is a Label
+    5 00000008 E2400001        SUB              R0, #1      ; decrement the cou
+                                                            nter by 1 ….
+    6 0000000C E0811000        ADD              R1, R0      ; Add R1 ,R0 & stor
+                                                            e result in R1
+    7 00000010 E3500001        CMP              R0, #1      ; if True,  branch 
+                                                            to AGAIN
+    8 00000014 1AFFFFFB        BNE              AGAIN
+    9 00000018 EAFFFFFE 
+                       LOOP    B                LOOP
+   10 0000001C         END
+                       
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\prg2.d -o.\objects\prg2.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMS
+IS\Include -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine
+="__UVISION_VERSION SETA 529" --list=.\listings\prg2.lst prg2.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+AGAIN 00000008
+
+Symbol: AGAIN
+   Definitions
+      At line 4 in file prg2.asm
+   Uses
+      At line 8 in file prg2.asm
+Comment: AGAIN used once
+END 0000001C
+
+Symbol: END
+   Definitions
+      At line 10 in file prg2.asm
+   Uses
+      None
+Comment: END unused
+LOOP 00000018
+
+Symbol: LOOP
+   Definitions
+      At line 9 in file prg2.asm
+   Uses
+      At line 9 in file prg2.asm
+Comment: LOOP used once
+SUM10 00000000
+
+Symbol: SUM10
+   Definitions
+      At line 1 in file prg2.asm
+   Uses
+      None
+Comment: SUM10 unused
+4 symbols
+336 symbols in table

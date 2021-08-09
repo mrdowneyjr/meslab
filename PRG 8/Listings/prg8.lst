@@ -1,0 +1,72 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             PROGRAM, CODE, READONLY
+    2 00000000         ENTRY
+    3 00000000 E1DF01B8        LDRH             R0,VALUE
+    4 00000004 E3A01010        MOV              R1,#0x10
+    5 00000008 E1B00060 
+                       LOOP    MOVS             R0,R0,RRX
+    6 0000000C 32833001        ADDCC            R3,R3,#1
+    7 00000010 32822001        ADDCC            R2,R2,#1
+    8 00000014 E2511001        SUBS             R1,R1,#1
+    9 00000018 1AFFFFFA        BNE              LOOP
+   10 0000001C EAFFFFFE 
+                       STOP    B                STOP
+   11 00000020 02 00   VALUE   DCW              0x00000002
+   12 00000022                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\prg8.d -o.\objects\prg8.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMS
+IS\Include -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --predefine
+="__UVISION_VERSION SETA 529" --list=.\listings\prg8.lst prg8.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ENTRY 00000000
+
+Symbol: ENTRY
+   Definitions
+      At line 2 in file prg8.asm
+   Uses
+      None
+Comment: ENTRY unused
+LOOP 00000008
+
+Symbol: LOOP
+   Definitions
+      At line 5 in file prg8.asm
+   Uses
+      At line 9 in file prg8.asm
+Comment: LOOP used once
+PROGRAM 00000000
+
+Symbol: PROGRAM
+   Definitions
+      At line 1 in file prg8.asm
+   Uses
+      None
+Comment: PROGRAM unused
+STOP 0000001C
+
+Symbol: STOP
+   Definitions
+      At line 10 in file prg8.asm
+   Uses
+      At line 10 in file prg8.asm
+Comment: STOP used once
+VALUE 00000020
+
+Symbol: VALUE
+   Definitions
+      At line 11 in file prg8.asm
+   Uses
+      At line 3 in file prg8.asm
+Comment: VALUE used once
+5 symbols
+337 symbols in table
